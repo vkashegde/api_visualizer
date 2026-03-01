@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+}
+
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  
+  .glow-border {
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, inset 0 0 10px currentColor;
+  }
+
+  .neon-text {
+    animation: neon-flicker 2s ease-in-out infinite alternate;
+    text-shadow: 
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 15px #60A5FA,
+      0 0 20px #60A5FA,
+      0 0 35px #60A5FA,
+      0 0 40px #60A5FA;
+    color: #fff;
+  }
+
+  @keyframes neon-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #60A5FA,
+        0 0 20px #60A5FA,
+        0 0 35px #60A5FA,
+        0 0 40px #60A5FA;
+    }
+    20%, 24%, 55% {
+      text-shadow: 
+        0 0 2px #fff,
+        0 0 5px #fff,
+        0 0 8px #60A5FA,
+        0 0 12px #60A5FA,
+        0 0 20px #60A5FA,
+        0 0 25px #60A5FA;
+    }
+  }
+}
