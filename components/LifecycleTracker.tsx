@@ -8,6 +8,7 @@ import TimingWaterfall from './TimingWaterfall';
 import BrowserRender from './BrowserRender';
 import LogSection from './LogSection';
 import ResponseDisplay from './ResponseDisplay';
+import EmptyState from './EmptyState';
 
 export default function LifecycleTracker() {
   const [data, setData] = useState<LifecycleData>({
@@ -54,7 +55,7 @@ export default function LifecycleTracker() {
         </div>
 
         {/* Main Content */}
-        {data.stages.length > 0 && (
+        {data.stages.length > 0 ? (
           <div className="space-y-6">
             {/* Pipeline */}
             <Pipeline stages={data.stages} />
@@ -71,6 +72,8 @@ export default function LifecycleTracker() {
             {/* Response Display */}
             <ResponseDisplay response={data.response} error={data.error} />
           </div>
+        ) : (
+          <EmptyState />
         )}
 
     
